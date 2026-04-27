@@ -1,0 +1,12 @@
+<Solution>
+  <Project Path="ReplicatedMemoryCache.Benchmarks/ReplicatedMemoryCache.Benchmarks.csproj" />
+  <Project Path="ReplicatedMemoryCache.Profiling/ReplicatedMemoryCache.Profiling.csproj" Id="4bff44d3-f26c-4f40-b6d8-afefdbab5c6e">
+    <Build Solution="Release|*" Project="false" />
+  </Project>
+  <Project Path="ReplicatedMemoryCache.Simulations/ReplicatedMemoryCache.Simulations.csproj" />
+  <Project Path="ReplicatedMemoryCache.StressTests/ReplicatedMemoryCache.StressTests.csproj" Id="f5ceb25f-27a5-4837-a8d5-0e871767cd7e">
+    <Build Solution="Release|*" Project="false" />
+  </Project>
+  <Project Path="ReplicatedMemoryCache.Tests/ReplicatedMemoryCache.Tests.csproj" />
+  <Project Path="ReplicatedMemoryCache/ReplicatedMemoryCache.csproj" />
+</Solution>

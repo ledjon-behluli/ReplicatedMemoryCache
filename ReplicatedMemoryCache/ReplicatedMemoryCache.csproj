@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>Latest</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DefineConstants>$(DefineConstants);RIBLT_PROFILE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Orleans.Sdk" Version="10.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="10.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="ReplicatedMemoryCache.Tests" />
+    <InternalsVisibleTo Include="ReplicatedMemoryCache.Profiling" />
+    <InternalsVisibleTo Include="ReplicatedMemoryCache.Benchmarks" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <PackageId>ReplicatedMemoryCache</PackageId>
+    <PackageIcon>Logo.png</PackageIcon>
+    <Authors>Ledjon Behluli</Authors>
+    <Title>A distributed, eventually consistent, zero-hop read memory cache for .NET applications running on Orleans.</Title>
+    <Description>A distributed, eventually consistent, zero-hop read memory cache for .NET applications running on Orleans.</Description>
+    <Copyright>Copyright (c) Ledjon Behluli</Copyright>
+    <PackageTags>dotnet;orleans;replication;cache;riblt;set-reconciliation</PackageTags>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <RepositoryUrl>https://github.com/ledjon-behluli/ReplicatedMemoryCache</RepositoryUrl>
+  </PropertyGroup>
+
+</Project>
