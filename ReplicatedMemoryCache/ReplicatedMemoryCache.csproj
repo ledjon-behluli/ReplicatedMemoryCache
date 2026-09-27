@@ -37,4 +37,8 @@
     <RepositoryUrl>https://github.com/ledjon-behluli/ReplicatedMemoryCache</RepositoryUrl>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="Logo.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+
 </Project>
