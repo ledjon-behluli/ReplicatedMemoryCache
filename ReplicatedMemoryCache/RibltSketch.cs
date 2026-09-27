@@ -15,18 +15,16 @@ internal class RibltSketch
     private const int LockMask = LockCount - 1;
 
     /// <summary>
-    /// <para>
     /// The <see cref="LocalNodeCache"/> uses lock striping based on the <b>cache key</b> to prevent 
     /// concurrent updates to the same cache entry. However, 2 threads updating completely <b>different cache keys</b>
     /// (holding different cache locks) might still have their PRNG sequences overlap and land on the exact same 
     /// cell index in this sketch at the same time.
-    /// </para>
-    /// <para>
+    /// </summary>
+    /// <remarks>
     /// The number of locks (64) is chosen intentionally much lower than the local node cache (1024), 
     /// because the critical section inside these locks is executed very fast (just some XOR math on CodedSymbol.Apply(hashedSymbol, operation)).
     /// Because threads enter and exit this section rapidly, and because the PRNG scatters writes pseudo-randomly across the array,
     /// 64 locks heavily dilutes the probability of contention on the same cell index at any point in time.
-    /// </para>
     /// </remarks>
     private readonly Lock[] _lockStrip = [.. Enumerable.Range(0, LockCount).Select(_ => new Lock())];
 
@@ -44,7 +42,6 @@ internal class RibltSketch
     /// <summary>
     /// Maps the mutation symbol across the sketch using pseudo-random indices derived from its hash.
     /// </summary>
-    /// <remarks>
     /// <param name="symbol">The mutation symbol to apply.</param>
     /// <param name="operation">The operation to perform (add/remove)</param>
     public void ApplyMutation(MutationSymbol symbol, SymbolOperation operation)
