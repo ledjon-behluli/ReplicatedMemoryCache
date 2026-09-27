@@ -7,10 +7,13 @@ namespace Ledjon.ReplicatedMemoryCache;
 
 internal record NamedReplicationScope(string Value);
 
+/// <summary>
+/// Extensions methods for the replicated in-memory cache.
+/// </summary>
 public static class HostingExtensions
 {
     /// <summary>
-    /// Registers the replicated in-memory cache sub-system.
+    /// Registers the replicated in-memory cache.
     /// </summary>
     /// <param name="services">The service collection.</param>
     /// <param name="scopeName">A named scope to isolate multiple independent cache replicas within the same application.</param>
@@ -20,7 +23,7 @@ public static class HostingExtensions
             services.AddMemoryCacheReplication<OrleansCacheEntrySerializer>(scopeName, configureOptions);
 
     /// <summary>
-    /// Registers the replicated in-memory cache sub-system, using a custom <see cref="ICacheEntrySerializer"/>.
+    /// Registers the replicated in-memory cache, using a custom <see cref="ICacheEntrySerializer"/>.
     /// </summary>
     /// <param name="services">The service collection.</param>
     /// <param name="scopeName">A named scope to isolate multiple independent cache replicas within the same application.</param>

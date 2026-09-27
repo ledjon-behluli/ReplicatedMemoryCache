@@ -1,5 +1,8 @@
 ﻿namespace Ledjon.ReplicatedMemoryCache;
 
+/// <summary>
+/// Options for configuring the replicated in-memory cache.
+/// </summary>
 public sealed class ReplicatedMemoryCacheOptions
 {
     internal static readonly TimeSpan LivenessPeriod = TimeSpan.FromSeconds(30);
