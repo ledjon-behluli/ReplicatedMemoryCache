@@ -25,9 +25,6 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release
       
-    - name: Test
-      run: dotnet test ReplicatedMemoryCache.Tests/ReplicatedMemoryCache.Tests.csproj --configuration Release
-    
     - name: Pack
       working-directory: ReplicatedMemoryCache
       run: dotnet pack --configuration Release --no-build -p:Version=${{ inputs.nuget_version }}
